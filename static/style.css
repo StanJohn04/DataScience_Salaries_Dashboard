@@ -1,0 +1,24 @@
+/* set customer color and border for bootstrap jumbotron  */
+.jumbo-style {
+    color: bisque;
+    background-color: rgb(106, 124, 74);
+}
+.container .jumbotron {
+    border-radius: 65px;
+}
+
+/* Remove the default margin and padding from the body. */
+/* MAY NEED SPECIAL CLASS THAT ONLY AFFECTS INDEX.HTML */
+body {
+    padding: 0;
+    margin: 0;
+  }
+  
+
+  /* MAY ALSO NEED SPECIAL CLASSED TO ONLY AFFECT INDEX.HTML (WHERE THE MAP IS) */
+  /* Set map, body, and html to 100% of the screen size. */
+  #map,
+  body,
+  html {
+    height: 100%;
+  }
