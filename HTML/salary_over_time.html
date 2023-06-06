@@ -38,10 +38,24 @@
             <a class="btn btn-info btn-lg" href="country_salaries.html" id=button3 role="button">Country Comparison</a>
             <a class="btn btn-info btn-lg" href="jobtitle_salaries.html" id=button4 role="button">Job Title Comparison</a>
             <hr>
+            <div class="panel panel-custom1">
+              <div class="panel-heading">
+                  <h3 class="panel-title text-center">Select a Country</h3>
+              </div>
+              <div id="countrydrop" class="panel-body">
+                  <select id="selDataset" onchange="optionChanged(this.value)">
+                      <option value="All" selected>All</option>
+                  </select>
+              </div>
+          </div>
         </div>
+        
     </div>
     <div class="row">
-      <!-- ADD CODE HERE -->
+      <div id="timesalary"></div>
+    </div>
+    <div class="row">
+      <div id="timeremote"></div>
     </div>
   </div>
 
