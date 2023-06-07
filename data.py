@@ -69,7 +69,7 @@ def get_data():
 def get_country_data():
     conn = sqlite3.connect("my_data.db")
     c = conn.cursor()
-    data = c.execute('''Select company_location, AVG(salary_in_usd),AVG(remote_ratio) FROM data_salaries GROUP BY company_location''').fetchall()
+    data = c.execute('''Select company_location, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio' FROM data_salaries GROUP BY company_location''').fetchall()
     conn.close()
 
     # Convert the data to a list of dictionaries
