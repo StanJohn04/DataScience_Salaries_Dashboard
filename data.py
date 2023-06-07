@@ -7,9 +7,47 @@ CORS(app)
 
 @app.route("/")
 def home():
-    #print request recieved to terminal
-    print(f"Server recieved request for index route")
-    return "It worked!"
+    # Print request received to the terminal
+    print("Server received request for index route")
+    return """
+    <html>
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            h1 {
+                font-size: 45px;
+                color: #333;
+                margin-bottom: 20px;
+            }
+            
+            p {
+                font-size: 25px;
+                color: #666;
+                line-height: 1.5;
+            }
+            
+            a {
+                color: #0066cc;
+                text-decoration: none;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to our Project!</h1>
+        <p>Click this link: <a href="http://127.0.0.1:5000/data">http://127.0.0.1:5000/data</a> to access our data</p>
+    </body>
+    </html>
+    """
 
 @app.route('/data', methods=['GET'])
 def get_data():
