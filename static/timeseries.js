@@ -9,6 +9,7 @@ function timeCharts(location){
         //filter data by location
         let filteredByLocation = data.filter(item=>item.company_location==location);
 
+
         //functions to further filter data by year
         function filter20(job){
             return job.work_year == 2020;
