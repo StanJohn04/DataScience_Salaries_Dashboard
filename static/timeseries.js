@@ -1,9 +1,16 @@
 // Time Series
+// set url for FlaskAPI
 let url = 'http://127.0.0.1:5000/data'
+
+//create function that updates charts based on location
 function timeCharts(location){
+    //read in data with d3.json 
     d3.json(url).then(function(data){
+        //filter data by location
         let filteredByLocation = data.filter(item=>item.company_location==location);
 
+
+        //functions to further filter data by year
         function filter20(job){
             return job.work_year == 2020;
         }
@@ -27,12 +34,13 @@ function timeCharts(location){
         console.log(filteredJobs22);
         console.log(filteredJobs23);
     
-
+        //empty lists to store salaries from each year
         var salaries20 = [];
         var salaries21 = [];
         var salaries22 = [];
         var salaries23 = [];
 
+        // loop through each filtered set and store values in arrays
         for (let i=0; i<filteredJobs20.length; i++){
             salaries20.push(filteredJobs20[i].salary_in_usd)
         }
@@ -46,12 +54,13 @@ function timeCharts(location){
             salaries23.push(filteredJobs23[i].salary_in_usd)
         }
 
+        //calculate averages for each year
         let avgSal20 = d3.mean(salaries20);
         let avgSal21 = d3.mean(salaries21);
         let avgSal22 = d3.mean(salaries22);
         let avgSal23 = d3.mean(salaries23);
 
-        
+        // repeat above process for remote work data
         var remote20 = [];
         var remote21 = [];
         var remote22 = [];
@@ -76,10 +85,11 @@ function timeCharts(location){
         let avgRem23 = d3.mean(remote23);
 
 
-
+        //set x and y values for salary line plot
         let line1_xvalues = ['2020', '2021', '2022', '2023'];
         let line1_yvalues = [avgSal20,avgSal21,avgSal22,avgSal23]
 
+        //setup plotly graph
         let line1Data = [{
             y:line1_yvalues,
             x:line1_xvalues,
@@ -108,6 +118,7 @@ function timeCharts(location){
 
         Plotly.newPlot("timesalary", line1Data, line1Layout);
 
+        //setup plotly graph for remote work data
         let line2_xvalues = ['2020', '2021', '2022', '2023'];
         let line2_yvalues = [avgRem20,avgRem21,avgRem22,avgRem23]
 
@@ -141,14 +152,21 @@ function timeCharts(location){
     })
 }
 
+//function to initialize the charts when the page first loads
+//very similar to timeCharts() but doesnt filter by location
 function init(){
     //populate dropdown//
     d3.json(url).then(function(data){
+
+        //creat empty list to store country codes
         let countryList = [];
+
+        //loop through data storing each country code only once
         for (let i=0; i<data.length; i++){
             let countryCode = data[i].company_location
             countryList.indexOf(countryCode) === -1 ? countryList.push(countryCode) : console.log();
         }
+        // add country codes to dropdown menu
         for (let i=0;i<countryList.length;i++){
             d3.select("#selDataset")
                 .append("option")
@@ -236,7 +254,7 @@ function init(){
             width:1200,
             height:500,
             title:{
-                text: 'Average Salary per Year'
+                text: 'Average Salary per Year (Global)'
             },
             xaxis:{
                 tick0:2020,
@@ -267,7 +285,7 @@ function init(){
             width:1200,
             height:500,
             title:{
-                text: 'Average Remote-Work Ratio Per Year'
+                text: 'Average Remote-Work Ratio Per Year (Global)'
             },
             xaxis:{
                 tick0:2020,
@@ -317,9 +335,9 @@ function init(){
             }
 
         };
-        console.log(barData);
-        console.log(barLabels)
 
+        //function to select the colors of the bars in the bar chart
+        // green for positive, red for negative
         function barColor(){
             return(ctx) => {
                 const standard = 0;
@@ -330,6 +348,7 @@ function init(){
             }
         }
 
+        //chart.js bar chart setup
         const ctx = document.getElementById('timebar');
         new Chart(ctx, {
             type: 'bar',
@@ -344,9 +363,11 @@ function init(){
             },
             options: {
                 scales: {
-                // x:{
-                //     position: bottom
-                // },
+                x:{
+                    ticks:{
+                        mirror:true
+                    },
+                },
                 y: {
                     min : -40000,
                     max : 100000,
@@ -367,6 +388,9 @@ function init(){
     })
 }
 
+// function that is called everything the dropdown menu is changed
+// if 'ALL' is selected run init()
+// otherwise run timeCharts to filter data by location
 function optionChanged(location){
     if (location == 'All'){
         init()
@@ -376,4 +400,5 @@ function optionChanged(location){
     }
 }
 
+// call init to initialize the page
 init();
