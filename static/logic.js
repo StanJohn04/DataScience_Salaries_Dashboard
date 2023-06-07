@@ -286,6 +286,85 @@ function init(){
         }
 
         Plotly.newPlot("timeremote", line2Data, line2Layout);
+
+        var barData = [];
+        var barLabels = [];
+
+        //use chart.js to plot barchart//
+        for (let i=0; i<countryList.length;i++){
+            let filteredByLocation = data.filter(item=>item.company_location==countryList[i]);
+
+            let filteredJobs20 = filteredByLocation.filter(filter20)
+            let filteredJobs23 = filteredByLocation.filter(filter23)
+
+            var salaries20 = [];
+            var salaries23 = [];
+    
+            for (let i=0; i<filteredJobs20.length; i++){
+                salaries20.push(filteredJobs20[i].salary_in_usd)
+            }
+            for (let i=0; i<filteredJobs23.length; i++){
+                salaries23.push(filteredJobs23[i].salary_in_usd)
+            }
+    
+            let avgSal20 = d3.mean(salaries20);
+            let avgSal23 = d3.mean(salaries23);
+
+            let difference = avgSal23 - avgSal20
+
+            if (difference){
+            barLabels.push(countryList[i]);
+            barData.push(difference)
+            }
+
+        };
+        console.log(barData);
+        console.log(barLabels)
+
+        function barColor(){
+            return(ctx) => {
+                const standard = 0;
+                const salchange = ctx.raw;
+                const color = salchange > standard ? 'rgb(75,192,192,0.5)'
+                : salchange <= standard ? 'rgb(255,26,104,0.5)' : 'black';
+                return color
+            }
+        }
+
+        const ctx = document.getElementById('timebar');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: barLabels,
+                datasets: [{
+                label:"Change in Salary (2020-2023)",
+                data: barData,
+                borderWidth: 1,
+                backgroundColor:barColor(this),
+                }]
+            },
+            options: {
+                scales: {
+                // x:{
+                //     position: bottom
+                // },
+                y: {
+                    min : -40000,
+                    max : 100000,
+                    beginAtZero: true,
+                    grid:{
+                        color:(context)=>{
+                            const zeroline = context.tick.value;
+                            const lineColor = zeroline === 0 ? '#666' : '#ccc';
+                            return lineColor;
+                        }
+                    },
+                    text:'USD',
+                    display:true
+                }
+                }
+            }
+            });
     })
 }
 
@@ -301,7 +380,7 @@ function optionChanged(location){
 init();
 
 
-
+    
 
 
 //Country Comparison
