@@ -1,73 +1,73 @@
-,Country,Latitude,Longitude
-0,AE,24.0,54.0
-1,AL,41.0,20.0
-2,AM,40.0,45.0
-3,AR,-34.0,-64.0
-4,AS,-14.3333,-170.0
-5,AT,47.3333,13.3333
-6,AU,-27.0,133.0
-7,BA,44.0,18.0
-8,BE,50.8333,4.0
-9,BO,-17.0,-65.0
-11,BR,-10.0,-55.0
-12,BS,24.25,-76.0
-13,CA,60.0,-95.0
-14,CF,7.0,21.0
-15,CH,47.0,8.0
-16,CL,-30.0,-71.0
-17,CN,35.0,105.0
-18,CO,4.0,-72.0
-19,CR,10.0,-84.0
-20,CZ,49.75,15.5
-21,DE,51.0,9.0
-22,DK,56.0,10.0
-23,DZ,28.0,3.0
-24,EE,59.0,26.0
-25,EG,27.0,30.0
-26,ES,40.0,-4.0
-27,FI,64.0,26.0
-28,FR,46.0,2.0
-29,GB,54.0,-2.0
-30,GH,8.0,-2.0
-31,GR,39.0,22.0
-32,HK,22.25,114.1667
-33,HN,15.0,-86.5
-34,HR,45.1667,15.5
-35,HU,47.0,20.0
-36,ID,-5.0,120.0
-37,IE,53.0,-8.0
-38,IL,31.5,34.75
-39,IN,20.0,77.0
-40,IQ,33.0,44.0
-41,IR,32.0,53.0
-42,IT,42.8333,12.8333
-43,JP,36.0,138.0
-44,KE,1.0,38.0
-45,LT,56.0,24.0
-46,LU,49.75,6.1667
-47,LV,57.0,25.0
-48,MA,32.0,-5.0
-49,MD,47.0,29.0
-50,MK,41.8333,22.0
-51,MT,35.8333,14.5833
-52,MX,23.0,-102.0
-53,MY,2.5,112.5
-54,NG,10.0,8.0
-55,NL,52.5,5.75
-56,NZ,-41.0,174.0
-57,PH,13.0,122.0
-58,PK,30.0,70.0
-59,PL,52.0,20.0
-60,PR,18.25,-66.5
-61,PT,39.5,-8.0
-62,RO,46.0,25.0
-63,RU,60.0,100.0
-65,SE,62.0,15.0
-66,SG,1.3667,103.8
-67,SI,46.0,15.0
-68,SK,48.6667,19.5
-69,TH,15.0,100.0
-70,TR,39.0,35.0
-71,UA,49.0,32.0
-72,US,38.0,-97.0
-73,VN,16.0,106.0
+,Country,Country_Code,Latitude,Longitude
+0,United Arab Emirates,AE,24.0,54.0
+1,Albania,AL,41.0,20.0
+2,Armenia,AM,40.0,45.0
+3,Argentina,AR,-34.0,-64.0
+4,American Samoa,AS,-14.3333,-170.0
+5,Austria,AT,47.3333,13.3333
+6,Australia,AU,-27.0,133.0
+7,Bosnia and Herzegovina,BA,44.0,18.0
+8,Belgium,BE,50.8333,4.0
+9,"Bolivia, Plurinational State of",BO,-17.0,-65.0
+11,Brazil,BR,-10.0,-55.0
+12,Bahamas,BS,24.25,-76.0
+13,Canada,CA,60.0,-95.0
+14,Central African Republic,CF,7.0,21.0
+15,Switzerland,CH,47.0,8.0
+16,Chile,CL,-30.0,-71.0
+17,China,CN,35.0,105.0
+18,Colombia,CO,4.0,-72.0
+19,Costa Rica,CR,10.0,-84.0
+20,Czech Republic,CZ,49.75,15.5
+21,Germany,DE,51.0,9.0
+22,Denmark,DK,56.0,10.0
+23,Algeria,DZ,28.0,3.0
+24,Estonia,EE,59.0,26.0
+25,Egypt,EG,27.0,30.0
+26,Spain,ES,40.0,-4.0
+27,Finland,FI,64.0,26.0
+28,France,FR,46.0,2.0
+29,United Kingdom,GB,54.0,-2.0
+30,Ghana,GH,8.0,-2.0
+31,Greece,GR,39.0,22.0
+32,Hong Kong,HK,22.25,114.1667
+33,Honduras,HN,15.0,-86.5
+34,Croatia,HR,45.1667,15.5
+35,Hungary,HU,47.0,20.0
+36,Indonesia,ID,-5.0,120.0
+37,Ireland,IE,53.0,-8.0
+38,Israel,IL,31.5,34.75
+39,India,IN,20.0,77.0
+40,Iraq,IQ,33.0,44.0
+41,"Iran, Islamic Republic of",IR,32.0,53.0
+42,Italy,IT,42.8333,12.8333
+43,Japan,JP,36.0,138.0
+44,Kenya,KE,1.0,38.0
+45,Lithuania,LT,56.0,24.0
+46,Luxembourg,LU,49.75,6.1667
+47,Latvia,LV,57.0,25.0
+48,Morocco,MA,32.0,-5.0
+49,"Moldova, Republic of",MD,47.0,29.0
+50,"Macedonia, the former Yugoslav Republic of",MK,41.8333,22.0
+51,Malta,MT,35.8333,14.5833
+52,Mexico,MX,23.0,-102.0
+53,Malaysia,MY,2.5,112.5
+54,Nigeria,NG,10.0,8.0
+55,Netherlands,NL,52.5,5.75
+56,New Zealand,NZ,-41.0,174.0
+57,Philippines,PH,13.0,122.0
+58,Pakistan,PK,30.0,70.0
+59,Poland,PL,52.0,20.0
+60,Puerto Rico,PR,18.25,-66.5
+61,Portugal,PT,39.5,-8.0
+62,Romania,RO,46.0,25.0
+63,Russian Federation,RU,60.0,100.0
+65,Sweden,SE,62.0,15.0
+66,Singapore,SG,1.3667,103.8
+67,Slovenia,SI,46.0,15.0
+68,Slovakia,SK,48.6667,19.5
+69,Thailand,TH,15.0,100.0
+70,Turkey,TR,39.0,35.0
+71,Ukraine,UA,49.0,32.0
+72,United States,US,38.0,-97.0
+73,Viet Nam,VN,16.0,106.0
