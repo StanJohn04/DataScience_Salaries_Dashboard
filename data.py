@@ -100,7 +100,7 @@ def get_country_locations():
 
 # route for job title data
 @app.route('/job_title', methods=['GET'])
-def get_country_locations():
+def get_job_title():
     conn = sqlite3.connect("my_data.db")
     c = conn.cursor()
     data = c.execute('''Select job_title, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio' FROM data_salaries GROUP BY job_title''').fetchall()
