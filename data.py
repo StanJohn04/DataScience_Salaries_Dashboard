@@ -45,15 +45,31 @@ def home():
     <body>
         <h1>Welcome to our Project!</h1>
         <p>Click this link: <a href="http://127.0.0.1:5000/data">http://127.0.0.1:5000/data</a> to access our data</p>
+        <p>Click this link: <a href="http://127.0.0.1:5000/country_data">http://127.0.0.1:5000/country_data</a> to access country data</p>
     </body>
     </html>
     """
+
 
 @app.route('/data', methods=['GET'])
 def get_data():
     conn = sqlite3.connect("my_data.db")
     c = conn.cursor()
     data = c.execute('''SELECT * FROM data_salaries''').fetchall()
+    conn.close()
+
+    # Convert the data to a list of dictionaries
+    column_names = [description[0] for description in c.description]
+    data_dict = [dict(zip(column_names, row)) for row in data]
+
+    # Return the data as JSON
+    return jsonify(data_dict)
+
+@app.route('/country_data', methods=['GET'])
+def get_country_data():
+    conn = sqlite3.connect("my_data.db")
+    c = conn.cursor()
+    data = c.execute('''Select company_location, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio' FROM data_salaries GROUP BY company_location''').fetchall()
     conn.close()
 
     # Convert the data to a list of dictionaries
