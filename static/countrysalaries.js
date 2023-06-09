@@ -4,14 +4,17 @@ d3.json(countryURL).then(function(data){
         var labels = [];
         var salaries = [];
         var remote = [];
+        var jobcount = [];
         for (let i = 0; i<data.length; i++){
             labels.push(data[i].company_location);
             salaries.push(data[i].salary_in_usd);
-            remote.push(data[i].remote_ratio)
+            remote.push(data[i].remote_ratio);
+            jobcount.push(data[i].count)
         }
         console.log(labels)
         console.log(salaries)
         console.log(remote)
+        console.log(jobcount)
 })
 function titleCharts(location){
     d3.json(countryURL).then(function(data){
@@ -21,10 +24,12 @@ function titleCharts(location){
         var labels = [];
         var salaries = [];
         var remote = [];
+        var jobcount = [];
         for (let i = 0; i<data.length; i++){
             labels.push(data[i].company_location);
             salaries.push(data[i].salary_in_usd);
-            remote.push(data[i].remote_ratio)
+            remote.push(data[i].remote_ratio);
+            jobcount.push(data[i].count)
         }
 
          let bar1Data = {
@@ -53,31 +58,33 @@ function titleCharts(location){
 
         Plotly.newPlot("bar1", [bar1Data], bar1Layout)
 
-        let bar2Data = {
-            y:remote,
-            x:labels,
-            text:labels,
-            type:'bar',
-            marker:{
-                color:'blue'
+        // bubble chart
+        let bubbleData = {
+            x: labels,
+            y: jobcount,
+            text: labels,
+            mode: 'markers',
+            marker: {
+                color: labels,
+                size: salaries
             }
-        };
+        }
 
-        let bar2Layout = {
-            autosize: true,
+        let bubbleLayout = {
+            autosize: false,
+            width: 1200,
+            height: 500,
             margin: {
-            l: 75,
-            r: 50,
-            b: 200,
-            t: 50,
-            pad: 4
+              l: 50,
+              r: 50,
+              b: 100,
+              t: 30,
+              pad: 4
             },
-            title: "Bar Test",
-            barmode: 'group',
-            // margin: //margin code goes here
+            showlegend: false,
         };
 
-        Plotly.newPlot("bar2", [bar2Data], bar2Layout)
+        Plotly.newPlot("bubble", [bubbleData], bubbleLayout);
 
     })
     } //titleCharts end
