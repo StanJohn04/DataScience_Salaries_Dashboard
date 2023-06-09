@@ -79,5 +79,21 @@ def get_country_data():
     # Return the data as JSON
     return jsonify(data_dict)
 
+
+# route for country location data
+@app.route('/country_locations', methods=['GET'])
+def get_country_locations():
+    conn = sqlite3.connect("my_data.db")
+    c = conn.cursor()
+    data = c.execute('''SELECT * FROM country_locations''').fetchall()
+    conn.close()
+
+    # Convert the data to a list of dictionaries
+    column_names = [description[0] for description in c.description]
+    data_dict = [dict(zip(column_names, row)) for row in data]
+
+    # Return the data as JSON
+    return jsonify(data_dict)
+
 if __name__ == '__main__':
     app.run()
