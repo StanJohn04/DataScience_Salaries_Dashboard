@@ -9,15 +9,13 @@ d3.json(countryURL).then(function(data){
             salaries.push(data[i].salary_in_usd);
             remote.push(data[i].remote_ratio)
         }
-​
         console.log(labels)
         console.log(salaries)
         console.log(remote)
 })
-​
 function titleCharts(location){
     d3.json(countryURL).then(function(data){
-​
+
         var filtered = data.filter(item=>item.company_location==location);
         console.log(data)
         var labels = [];
@@ -28,17 +26,17 @@ function titleCharts(location){
             salaries.push(data[i].salary_in_usd);
             remote.push(data[i].remote_ratio)
         }
-​
+
          let bar1Data = {
             y:salaries,
             x:labels,
             text:labels,
             type:'bar',
             marker:{
-                color:'purple'
+                color:'blue'
             }
         };
-​
+
         let bar1Layout = {
             autosize: true,
             margin: {
@@ -48,23 +46,23 @@ function titleCharts(location){
             t: 50,
             pad: 4
             },
-            // title: "Bar Test",
+            title: "Average Salary per Country (in USD)",
             barmode: 'group',
             // margin: //margin code goes here
         };
-​
+
         Plotly.newPlot("bar1", [bar1Data], bar1Layout)
-​
+
         let bar2Data = {
             y:remote,
             x:labels,
             text:labels,
             type:'bar',
             marker:{
-                color:'purple'
+                color:'blue'
             }
         };
-​
+
         let bar2Layout = {
             autosize: true,
             margin: {
@@ -74,14 +72,14 @@ function titleCharts(location){
             t: 50,
             pad: 4
             },
-            // title: "Bar Test",
+            title: "Bar Test",
             barmode: 'group',
             // margin: //margin code goes here
         };
-​
+
         Plotly.newPlot("bar2", [bar2Data], bar2Layout)
-​
+
     })
     } //titleCharts end
-​
+
 titleCharts();
