@@ -46,6 +46,8 @@ def home():
         <h1>Welcome to our Project!</h1>
         <p>Click this link: <a href="http://127.0.0.1:5000/data">http://127.0.0.1:5000/data</a> to access our data</p>
         <p>Click this link: <a href="http://127.0.0.1:5000/country_data">http://127.0.0.1:5000/country_data</a> to access country data</p>
+        <p>Click this link: <a href="http://127.0.0.1:5000/country_locations">http://127.0.0.1:5000/country_locations</a> to access country locations</p>
+        <p>Click this link: <a href="http://127.0.0.1:5000/job_title">http://127.0.0.1:5000/job_title</a> to access job title data</p>
     </body>
     </html>
     """
@@ -94,6 +96,24 @@ def get_country_locations():
 
     # Return the data as JSON
     return jsonify(data_dict)
+
+
+# route for job title data
+@app.route('/job_title', methods=['GET'])
+def get_country_locations():
+    conn = sqlite3.connect("my_data.db")
+    c = conn.cursor()
+    data = c.execute('''Select job_title, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio' FROM data_salaries GROUP BY job_title''').fetchall()
+    conn.close()
+
+    # Convert the data to a list of dictionaries
+    column_names = [description[0] for description in c.description]
+    data_dict = [dict(zip(column_names, row)) for row in data]
+
+    # Return the data as JSON
+    return jsonify(data_dict)
+
+
 
 if __name__ == '__main__':
     app.run()
