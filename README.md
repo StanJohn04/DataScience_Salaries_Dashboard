@@ -10,7 +10,9 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 # By Country
  * TEXT and IMAGES HERE
 # By Job Title
- * TEXT and IMAGES HEREs
+ * TEXT and IMAGES HERE
+# Toolkit
+# Next Steps
 # Team Members
   * [Stan Johnson](https://github.com/StanJohn04)
   * [Brian Haynes](https://github.com/brianphaynes)
