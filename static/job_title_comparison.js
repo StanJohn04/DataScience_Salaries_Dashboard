@@ -1,26 +1,26 @@
 // JaveScript code for plotting data goes here
 //Job Title Comparison
 // save url to access Flask API
-var jobTitlesURL = 'http://127.0.0.1:5000/job_title_data'
-​
+var jobTitlesURL = 'http://127.0.0.1:5000/job_title'
+
 //function that plots two bar charts
 function titleCharts(){
     // read in data from API
     d3.json(jobTitlesURL).then(function(data){
         console.log(data)
-​
+
         //set plotting variables
         var labels = [];
         var salaries = [];
         var remote = [];
-​
+
         //loop through data and store values in lists
         for (let i = 0; i<data.length; i++){
             labels.push(data[i].job_title);
             salaries.push(data[i].salary_in_usd);
             remote.push(data[i].remote_ratio)
         }
-​
+
         //plot salaries
          let bar1Data = {
           y:salaries,
@@ -90,10 +90,10 @@ function titleCharts(){
               borderwidth: 1
             }
           };
-​
+
         Plotly.newPlot("bar2", [bar2Data], bar2Layout)
-​
+
     })
     } //titleCharts end
-​
+
 titleCharts();
