@@ -1,10 +1,46 @@
 /* set customer color and border for bootstrap jumbotron  */
 .jumbo-style {
-    color: bisque;
-    background-color: rgb(106, 124, 74);
+  color: rgb(18, 11, 94);
+  background: url("../images/images.jpg"); 
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  border-radius: 65px;
+  padding:65px;
+
+}
+#time {
+  
+  background: url("../images/timeimage.jpg"); 
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  color: rgb(196, 190, 183);
+  border-radius: 65px;
+  padding:65px;
+}
+#country {
+  color: rgb(18, 11, 94);
+  background: url("../images/flags.jpg"); 
+  -webkit-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  background-size: 100% 100%;
+  border-radius: 65px;
+  padding:65px;
+}
+#jobtitle {
+  color: rgb(34, 19, 2);
+  background: url("../images/images.png"); 
+  border-radius: 65px;
+  padding:65px;
+  border: 1px solid
 }
 .container .jumbotron {
-    border-radius: 65px;
+  border-radius: 65px;
+  padding:65px;
 }
 
 /* Remove the default margin and padding from the body. */
@@ -14,7 +50,6 @@ body {
     margin: 0;
   }
   
-
   /* MAY ALSO NEED SPECIAL CLASSED TO ONLY AFFECT INDEX.HTML (WHERE THE MAP IS) */
   /* Set map, body, and html to 100% of the screen size. */
   #map,
