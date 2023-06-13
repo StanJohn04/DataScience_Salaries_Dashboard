@@ -19,6 +19,12 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 
 # By Country
 
+<img width="1196" alt="Screen Shot 2023-06-12 at 7 12 02 PM" src="https://github.com/StanJohn04/project3/assets/124820451/36cc7b66-732a-4056-aacf-12c97e4b1796">
+
+
+<img width="1137" alt="Screen Shot 2023-06-12 at 7 11 47 PM" src="https://github.com/StanJohn04/project3/assets/124820451/f72da918-3cac-41e2-a3ef-75d3605ec180">
+
+
 # By Job Title
 
 * Base on the chart shown below, Data Science Tech Lead have the highest salary among other job title with $375k and the lowest salary is Power BI Developer with $5409. This visualization show us the the salary for each job title.
