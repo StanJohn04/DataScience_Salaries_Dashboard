@@ -16,7 +16,11 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 
 
 # By Job Title
- * TEXT and IMAGES HERE
+
+![newplot](https://github.com/StanJohn04/project3/assets/120751287/782bb384-fc02-4678-a028-29ba8cb80985)
+
+![newplot (1)](https://github.com/StanJohn04/project3/assets/120751287/b8462646-3521-4901-ae3e-5467a22069f7)
+
 # Toolkit
 # Next Steps
 # Team Members
