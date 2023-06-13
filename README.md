@@ -8,7 +8,13 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 # Data Science Salaries over time
  * TEXT and IMAGES HERE
 # By Country
- * TEXT and IMAGES HERE
+
+<img width="1196" alt="Screen Shot 2023-06-12 at 7 12 02 PM" src="https://github.com/StanJohn04/project3/assets/124820451/36cc7b66-732a-4056-aacf-12c97e4b1796">
+
+
+<img width="1137" alt="Screen Shot 2023-06-12 at 7 11 47 PM" src="https://github.com/StanJohn04/project3/assets/124820451/f72da918-3cac-41e2-a3ef-75d3605ec180">
+
+
 # By Job Title
  * TEXT and IMAGES HERE
 # Toolkit
