@@ -59,17 +59,32 @@ function titleCharts(location){
         Plotly.newPlot("bar1", [bar1Data], bar1Layout)
 
         // bubble chart
+        // function to adjust marker size based on jobcount
+        function markerSize(jobs){
+            let list = [];
+            console.log(jobs)
+            for (let i = 0; i < jobs.length; i++){
+                var size = Math.sqrt(jobs[i])/2 * 10;
+                list.push(size)
+                console.log(list)
+            }
+            return list
+        }
+
         let bubbleData = {
             x: labels,
-            y: jobcount,
+            y: salaries,
             text: labels,
             mode: 'markers',
             marker: {
-                color: labels,
-                size: salaries
+                color: salaries,
+                size: markerSize(jobcount),
+                line:{
+                    color:'black',
+                    width:1
+                }
             }
         }
-
         let bubbleLayout = {
             autosize: false,
             width: 1200,
