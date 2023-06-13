@@ -1,66 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <title>Data Salaries - Timeseries</title>
+  <head>
+    <meta charset="utf-8">
+    <title>Data Salaries - Timeseries</title>
 
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin="" />
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin="" />
 
-  <!-- Leaflet JavaScript code -->
-  <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
-    integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
-    crossorigin=""></script>
+    <!-- Leaflet JavaScript code -->
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+      integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+      crossorigin=""></script>
 
-  <!-- Our CSS -->
-  <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
 
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  </head>
 
-<body id="timebody">
-  <div class="container">
-    <div class="row">
+  <body>
+    <div class="container">
+      <div class="row">
         <div class="col-md-12 jumbotron jumbo-style text-center" id="time">
-            <h1>Time Series Analysis</h1>
-            <p>Use the interactive charts below to explore the dataset</p>
+          <h1>Time Series Analysis</h1>
+          <p>Use the interactive charts below to explore the dataset</p>
         </div>
-    </div>
-    <div class="row">
+      </div>
+      <div class="row">
         <div class="col-md-12 text-center">
-            <hr>
-            <a class="btn btn-info btn-lg" href="../index.html" id=button1 role="button">Map</a>
-            <a class="btn btn-info btn-lg" href="salary_over_time.html" id=button2 role="button">Time Series</a>
-            <a class="btn btn-info btn-lg" href="country_salaries.html" id=button3 role="button">Country Comparison</a>
-            <a class="btn btn-info btn-lg" href="jobtitle_salaries.html" id=button4 role="button">Job Title Comparison</a>
-            <hr>
-            <div class="panel panel-custom1">
-              <div class="panel-heading">
-                  <h3 class="panel-title text-center">Select a Country</h3>
-              </div>
-              <div id="countrydrop" class="panel-body">
-                  <select id="selDataset" onchange="optionChanged(this.value)">
-                      <option value="All" selected>All</option>
-                  </select>
-              </div>
+          <hr>
+          <a class="btn btn-info btn-lg" href="../index.html" id=button1 role="button">Map</a>
+          <a class="btn btn-info btn-lg" href="salary_over_time.html" id=button2 role="button">Time Series</a>
+          <a class="btn btn-info btn-lg" href="country_salaries.html" id=button3 role="button">Country Comparison</a>
+          <a class="btn btn-info btn-lg" href="jobtitle_salaries.html" id=button4 role="button">Job Title Comparison</a>
+          <hr>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="panel panel-custom1">
+            <div class="panel-heading">
+              <h3 class="panel-title text-center">Select a Country</h3>
+            </div>
+            <div id="countrydrop" class="panel-body text-center">
+              <select id="selDataset" onchange="optionChanged(this.value)">
+                <option value="All" selected>All</option>
+              </select>
+            </div>
           </div>
         </div>
-        
+      </div>
+      <div class="row">
+        <div id="timesalary"></div>
+      </div>
+      <div class="row">
+        <div id="timeremote"></div>
+      </div>
+      <div class="row">
+        <canvas id="timebar"></canvas>
+      </div>
     </div>
-    <div class="row">
-      <div class="col-md-5" id="timesalary"></div>
-    </div>
-    <div class="row">
-      <div id="timeremote"></div>
-    </div>
-    <div class="row">
-      <canvas id="timebar"></canvas>
-    </div>
-  </div>
+    
 
 
   <!-- JavaScript file -->
@@ -68,6 +72,5 @@
   <script src="https://d3js.org/d3.v5.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script type="text/javascript" src="../static/timeseries.js"></script>
-</body>
-
+  </body>
 </html>
