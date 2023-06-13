@@ -2,14 +2,14 @@
 Design a interactive dashboard that explores a data scientist salaries dataset from a source such as kaggle.com. Some questions we will ask of the data are: How has average salary changed overtime? Which countries have highest paying data science jobs? Is remote work increasing/decreasing over time? Which countries have the most remote work available?
 # How To Use
 Instructions for Using the Interactive Dashboard:
-*Download the project files, which include the Python script file (data.py) and the HTML file (index.html).
+* Download the project files, which include the Python script file (data.py) and the HTML file (index.html).
 Open the file in VSCode.
-*Run the Python script file called data.py. Open your terminal window within VSCode and you should see that the server has started, it should say “Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)”. Control click that link within your VSCode terminal to open it in a webpage. Feel free to browse the data we used by clicking the links on the webpage.
-*With the Python script running you are ready to access the HTML file. Run the HTML file and it will open in a new webage window. On the main page, you will see buttons labeled "Map," "Time Series," "Country Comparison," and "Job Title Comparison." Click on any of these buttons to explore different aspects of the data.
-*Each button will take you to a new page with interactive visualizations related to the selected category. You can interact with the charts, maps, and comparisons to gain insights into data science salaries.
-*Feel free to navigate between different pages and explore various features of the dashboard.
-*When you are finished using the dashboard, you can close the web browser and stop the Python script by going back to the command prompt or terminal window and pressing Ctrl+C.
-*Just remember to run the Python script before accessing the HTML file to ensure the proper functioning of the interactive dashboard.
+* Run the Python script file called data.py. Open your terminal window within VSCode and you should see that the server has started, it should say “Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)”. Control click that link within your VSCode terminal to open it in a webpage. Feel free to browse the data we used by clicking the links on the webpage.
+* With the Python script running you are ready to access the HTML file. Run the HTML file and it will open in a new webage window. On the main page, you will see buttons labeled "Map," "Time Series," "Country Comparison," and "Job Title Comparison." Click on any of these buttons to explore different aspects of the data.
+* Each button will take you to a new page with interactive visualizations related to the selected category. You can interact with the charts, maps, and comparisons to gain insights into data science salaries.
+* Feel free to navigate between different pages and explore various features of the dashboard.
+* When you are finished using the dashboard, you can close the web browser and stop the Python script by going back to the command prompt or terminal window and pressing Ctrl+C.
+* Just remember to run the Python script before accessing the HTML file to ensure the proper functioning of the interactive dashboard.
 *Enjoy exploring our interactive data science salary dashboard!
 
 # Mapping Data Science Salaries
@@ -64,10 +64,10 @@ Open the file in VSCode.
 
 # Flask API
 * The Flask API is set up in the data.py file and is responsible for providing the data that the HTML file can request and display. Here's how it works:
-*The Python file sets up a Flask application using the Flask framework. This application acts as a web server that can receive HTTP requests and provide responses.
-*Within the Flask application, we defined a few routes to take us to different endpoints. The first route “/home” takes us to a home page with links that lead to different sets of the data we used. For example, one link takes us to the country data, one takes us to the job title data and so on. The “/home” route has some HTML code written in to format the links in a user friendly way on the home page. 
-*Inside each route, it connects to an SQLite database, retrieves data using SQL queries and then returns it as JSON responses. The team members can then pull the data in JSON format to use in their visualizations.
-*So basically the Python Flask application serves as the backend server that provides the requested data to the HTML file.
+* The Python file sets up a Flask application using the Flask framework. This application acts as a web server that can receive HTTP requests and provide responses.
+* Within the Flask application, we defined a few routes to take us to different endpoints. The first route “/home” takes us to a home page with links that lead to different sets of the data we used. For example, one link takes us to the country data, one takes us to the job title data and so on. The “/home” route has some HTML code written in to format the links in a user friendly way on the home page. 
+* Inside each route, it connects to an SQLite database, retrieves data using SQL queries and then returns it as JSON responses. The team members can then pull the data in JSON format to use in their visualizations.
+* So basically the Python Flask application serves as the backend server that provides the requested data to the HTML file.
 
 # Next Steps
   * A larger, more diverse dataset should be used to further explore data science salaries
