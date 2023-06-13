@@ -13,12 +13,14 @@ function titleCharts(){
         var labels = [];
         var salaries = [];
         var remote = [];
+        var jobcount = [];
 
         //loop through data and store values in lists
         for (let i = 0; i<data.length; i++){
             labels.push(data[i].job_title);
             salaries.push(data[i].salary_in_usd);
-            remote.push(data[i].remote_ratio)
+            remote.push(data[i].remote_ratio);
+            jobcount.push(data[i].count);
         }
 
         //plot salaries
@@ -43,9 +45,9 @@ function titleCharts(){
             r: 50,
             b: 200,
             t: 50,
-            pad: 4
+            pad: 0
             },
-            // title: "Salaries Comparison",
+            title: "Salaries Comparison",
             barmode: 'group',
             legend: {
               x: 0.5,
@@ -78,9 +80,9 @@ function titleCharts(){
             r: 50,
             b: 200,
             t: 50,
-            pad: 4
+            pad: 0
             },
-            // title: "Remote Work Comparison",
+            title: "Remote Work Comparison",
             barmode: 'group',
             legend: {
               x: 1.0,
@@ -92,7 +94,6 @@ function titleCharts(){
           };
 
         Plotly.newPlot("bar2", [bar2Data], bar2Layout)
-
     })
     } //titleCharts end
 

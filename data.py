@@ -103,7 +103,7 @@ def get_country_locations():
 def get_job_title():
     conn = sqlite3.connect("my_data.db")
     c = conn.cursor()
-    data = c.execute('''Select job_title, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio' FROM data_salaries GROUP BY job_title''').fetchall()
+    data = c.execute('''Select job_title, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio', COUNT(job_title) as 'count' FROM data_salaries GROUP BY job_title''').fetchall()
     conn.close()
 
     # Convert the data to a list of dictionaries
