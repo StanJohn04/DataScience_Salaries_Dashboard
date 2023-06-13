@@ -23,7 +23,9 @@ function titleCharts(){
 ​
         //plot salaries
          let bar1Data = {
-          // ...
+          y:salaries,
+          x:labels,
+          type:'bar',
           marker: {
             color: 'rgb(55, 128, 191)',
             opacity: 0.7,
@@ -34,7 +36,6 @@ function titleCharts(){
           },
           hovertemplate: '%{text}<br>Salary: $%{y}',
         };
-​
         let bar1Layout = {
             autosize: true,
             margin: {
@@ -54,15 +55,15 @@ function titleCharts(){
               borderwidth: 1
             }
           };
-​
         Plotly.newPlot("bar1", [bar1Data], bar1Layout)
-​
         //plot remote work
         let bar2Data = {
-          // ...
+          y:remote,
+          x:labels,
+          type:'bar',
           marker: {
             color: 'rgb(219, 64, 82)',
-            opacity: 0.7, 
+            opacity: 0.7,
             line: {
               color: 'rgb(126, 22, 37)',
               width: 1.5
@@ -70,7 +71,6 @@ function titleCharts(){
           },
           hovertemplate: '%{text}<br>Remote Work Ratio: %{y}%'
         };
-​
         let bar2Layout = {
             autosize: true,
             margin: {
