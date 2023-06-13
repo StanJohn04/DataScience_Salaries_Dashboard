@@ -55,7 +55,7 @@ def home():
 
 @app.route('/data', methods=['GET'])
 def get_data():
-    conn = sqlite3.connect("my_data.db")
+    conn = sqlite3.connect("Database/my_data.db")
     c = conn.cursor()
     data = c.execute('''SELECT * FROM data_salaries''').fetchall()
     conn.close()
@@ -69,7 +69,7 @@ def get_data():
 
 @app.route('/country_data', methods=['GET'])
 def get_country_data():
-    conn = sqlite3.connect("my_data.db")
+    conn = sqlite3.connect("Database/my_data.db")
     c = conn.cursor()
     data = c.execute('''Select company_location, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio', COUNT(company_location) as 'count' FROM data_salaries GROUP BY company_location''').fetchall()
     conn.close()
@@ -85,7 +85,7 @@ def get_country_data():
 # route for country location data
 @app.route('/country_locations', methods=['GET'])
 def get_country_locations():
-    conn = sqlite3.connect("my_data.db")
+    conn = sqlite3.connect("Database/my_data.db")
     c = conn.cursor()
     data = c.execute('''SELECT * FROM country_locations''').fetchall()
     conn.close()
@@ -101,7 +101,7 @@ def get_country_locations():
 # route for job title data
 @app.route('/job_title', methods=['GET'])
 def get_job_title():
-    conn = sqlite3.connect("my_data.db")
+    conn = sqlite3.connect("Database/my_data.db")
     c = conn.cursor()
     data = c.execute('''Select job_title, AVG(salary_in_usd) AS 'salary_in_usd',AVG(remote_ratio) AS 'remote_ratio', COUNT(job_title) as 'count' FROM data_salaries GROUP BY job_title''').fetchall()
     conn.close()

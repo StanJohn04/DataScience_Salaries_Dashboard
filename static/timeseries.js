@@ -109,6 +109,7 @@ function init(){
             let countryCode = data[i].company_location
             countryList.indexOf(countryCode) === -1 ? countryList.push(countryCode) : console.log();
         }
+        countryList.sort();
         // add country codes to dropdown menu
         for (let i=0;i<countryList.length;i++){
             d3.select("#selDataset")
