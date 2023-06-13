@@ -33,12 +33,14 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 
 # Toolkit
  * Dependencies used for this project:
+ 
    Python Libraries -
     * sqlite3
     * flask
       * Flask, jsonify
     * flask_cors
       * CORS
+      
    JavaScript Libraries -
     * d3.js
     * plotly.js
