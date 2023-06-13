@@ -8,93 +8,39 @@ function timeCharts(location){
     d3.json(url).then(function(data){
         //filter data by location
         let filteredByLocation = data.filter(item=>item.company_location==location);
-
-
-        //functions to further filter data by year
-        function filter20(job){
-            return job.work_year == 2020;
-        }
-        function filter21(job ){
-            return job.work_year == 2021;
-        }
-        function filter22(job){
-            return job.work_year == 2022;
-        }
-        function filter23(job){
-            return job.work_year == 2023;
-        }
-
-        let filteredJobs20 = filteredByLocation.filter(filter20)
-        let filteredJobs21 = filteredByLocation.filter(filter21)
-        let filteredJobs22 = filteredByLocation.filter(filter22)
-        let filteredJobs23 = filteredByLocation.filter(filter23)
-
-        console.log(filteredJobs20);
-        console.log(filteredJobs21);
-        console.log(filteredJobs22);
-        console.log(filteredJobs23);
-    
-        //empty lists to store salaries from each year
-        var salaries20 = [];
-        var salaries21 = [];
-        var salaries22 = [];
-        var salaries23 = [];
-
-        // loop through each filtered set and store values in arrays
-        for (let i=0; i<filteredJobs20.length; i++){
-            salaries20.push(filteredJobs20[i].salary_in_usd)
-        }
-        for (let i=0; i<filteredJobs21.length; i++){
-            salaries21.push(filteredJobs21[i].salary_in_usd)
-        }
-        for (let i=0; i<filteredJobs22.length; i++){
-            salaries22.push(filteredJobs22[i].salary_in_usd)
-        }
-        for (let i=0; i<filteredJobs23.length; i++){
-            salaries23.push(filteredJobs23[i].salary_in_usd)
-        }
-
+        //further filter data by year
+        let filteredJobs20 = filteredByLocation.filter(item=>item.work_year==2020);
+        let filteredJobs21 = filteredByLocation.filter(item=>item.work_year==2021);
+        let filteredJobs22 = filteredByLocation.filter(item=>item.work_year==2022);
+        let filteredJobs23 = filteredByLocation.filter(item=>item.work_year==2023);
+        //map salaries to an array for plotting
+        var salaries20 = filteredJobs20.map(item=>item.salary_in_usd);
+        var salaries21 = filteredJobs21.map(item=>item.salary_in_usd);
+        var salaries22 = filteredJobs22.map(item=>item.salary_in_usd);
+        var salaries23 = filteredJobs23.map(item=>item.salary_in_usd);
         //calculate averages for each year
         let avgSal20 = d3.mean(salaries20);
         let avgSal21 = d3.mean(salaries21);
         let avgSal22 = d3.mean(salaries22);
         let avgSal23 = d3.mean(salaries23);
-
         // repeat above process for remote work data
-        var remote20 = [];
-        var remote21 = [];
-        var remote22 = [];
-        var remote23 = [];
-
-        for (let i=0; i<filteredJobs20.length; i++){
-            remote20.push(filteredJobs20[i].remote_ratio)
-        };
-        for (let i=0; i<filteredJobs21.length; i++){
-            remote21.push(filteredJobs21[i].remote_ratio)
-        };
-        for (let i=0; i<filteredJobs22.length; i++){
-            remote22.push(filteredJobs22[i].remote_ratio)
-        };
-        for (let i=0; i<filteredJobs23.length; i++){
-            remote23.push(filteredJobs23[i].remote_ratio)
-        };
-
+        var remote20 = filteredJobs20.map(item=>item.remote_ratio);
+        var remote21 = filteredJobs21.map(item=>item.remote_ratio);
+        var remote22 = filteredJobs22.map(item=>item.remote_ratio);
+        var remote23 = filteredJobs23.map(item=>item.remote_ratio);
         let avgRem20 = d3.mean(remote20);
         let avgRem21 = d3.mean(remote21);
         let avgRem22 = d3.mean(remote22);
         let avgRem23 = d3.mean(remote23);
 
-
         //set x and y values for salary line plot
         let line1_xvalues = ['2020', '2021', '2022', '2023'];
         let line1_yvalues = [avgSal20,avgSal21,avgSal22,avgSal23]
-
         //setup plotly graph
         let line1Data = [{
             y:line1_yvalues,
             x:line1_xvalues,
         }]
-
         let line1Layout = {
             width:1200,
             height:500,
@@ -114,8 +60,7 @@ function timeCharts(location){
                     text:'Salary in USD'
                 }
             }
-        }
-
+}
         Plotly.newPlot("timesalary", line1Data, line1Layout);
 
         //setup plotly graph for remote work data
@@ -147,11 +92,9 @@ function timeCharts(location){
                 }
             }
         }
-
         Plotly.newPlot("timeremote", line2Data, line2Layout);
     })
 }
-
 //function to initialize the charts when the page first loads
 //very similar to timeCharts() but doesnt filter by location
 function init(){
@@ -175,72 +118,34 @@ function init(){
         }
 
         //plot global data//
-        function filter20(job){
-            return job.work_year == 2020;
-        }
-        function filter21(job ){
-            return job.work_year == 2021;
-        }
-        function filter22(job){
-            return job.work_year == 2022;
-        }
-        function filter23(job){
-            return job.work_year == 2023;
-        }
+        //further filter data by year
+        let filteredJobs20 = data.filter(item=>item.work_year==2020)
+        let filteredJobs21 = data.filter(item=>item.work_year==2021)
+        let filteredJobs22 = data.filter(item=>item.work_year==2022)
+        let filteredJobs23 = data.filter(item=>item.work_year==2023)
 
-        let filteredJobs20 = data.filter(filter20)
-        let filteredJobs21 = data.filter(filter21)
-        let filteredJobs22 = data.filter(filter22)
-        let filteredJobs23 = data.filter(filter23)
+        //map salaries to an array for plotting
+        var salaries20 = filteredJobs20.map(item=>item.salary_in_usd)
+        var salaries21 = filteredJobs21.map(item=>item.salary_in_usd)
+        var salaries22 = filteredJobs22.map(item=>item.salary_in_usd)
+        var salaries23 = filteredJobs23.map(item=>item.salary_in_usd)
 
-        var salaries20 = [];
-        var salaries21 = [];
-        var salaries22 = [];
-        var salaries23 = [];
-
-        for (let i=0; i<filteredJobs20.length; i++){
-            salaries20.push(filteredJobs20[i].salary_in_usd)
-        }
-        for (let i=0; i<filteredJobs21.length; i++){
-            salaries21.push(filteredJobs21[i].salary_in_usd)
-        }
-        for (let i=0; i<filteredJobs22.length; i++){
-            salaries22.push(filteredJobs22[i].salary_in_usd)
-        }
-        for (let i=0; i<filteredJobs23.length; i++){
-            salaries23.push(filteredJobs23[i].salary_in_usd)
-        }
-
+        //calculate averages for each year
         let avgSal20 = d3.mean(salaries20);
         let avgSal21 = d3.mean(salaries21);
         let avgSal22 = d3.mean(salaries22);
         let avgSal23 = d3.mean(salaries23);
 
-        
-        var remote20 = [];
-        var remote21 = [];
-        var remote22 = [];
-        var remote23 = [];
-
-        for (let i=0; i<filteredJobs20.length; i++){
-            remote20.push(filteredJobs20[i].remote_ratio)
-        };
-        for (let i=0; i<filteredJobs21.length; i++){
-            remote21.push(filteredJobs21[i].remote_ratio)
-        };
-        for (let i=0; i<filteredJobs22.length; i++){
-            remote22.push(filteredJobs22[i].remote_ratio)
-        };
-        for (let i=0; i<filteredJobs23.length; i++){
-            remote23.push(filteredJobs23[i].remote_ratio)
-        };
+        // repeat above process for remote work data
+        var remote20 = filteredJobs20.map(item=>item.remote_ratio)
+        var remote21 = filteredJobs21.map(item=>item.remote_ratio)
+        var remote22 = filteredJobs22.map(item=>item.remote_ratio)
+        var remote23 = filteredJobs23.map(item=>item.remote_ratio)
 
         let avgRem20 = d3.mean(remote20);
         let avgRem21 = d3.mean(remote21);
         let avgRem22 = d3.mean(remote22);
         let avgRem23 = d3.mean(remote23);
-
-
 
         let line1_xvalues = ['2020', '2021', '2022', '2023'];
         let line1_yvalues = [avgSal20,avgSal21,avgSal22,avgSal23]
@@ -270,7 +175,6 @@ function init(){
                 }
             }
         }
-
         Plotly.newPlot("timesalary", line1Data, line1Layout);
 
         let line2_xvalues = ['2020', '2021', '2022', '2023'];
@@ -301,41 +205,29 @@ function init(){
                 }
             }
         }
-
         Plotly.newPlot("timeremote", line2Data, line2Layout);
 
         var barData = [];
         var barLabels = [];
-
-        //use chart.js to plot barchart//
         for (let i=0; i<countryList.length;i++){
             let filteredByLocation = data.filter(item=>item.company_location==countryList[i]);
 
-            let filteredJobs20 = filteredByLocation.filter(filter20)
-            let filteredJobs23 = filteredByLocation.filter(filter23)
+            let filteredJobs20 = filteredByLocation.filter(item=>item.work_year==2020)
+            let filteredJobs23 = filteredByLocation.filter(item=>item.work_year==2023)
 
-            var salaries20 = [];
-            var salaries23 = [];
+            let sal20 = filteredJobs20.map(item=>item.salary_in_usd);
+            let sal23 = filteredJobs23.map(item=>item.salary_in_usd);
     
-            for (let i=0; i<filteredJobs20.length; i++){
-                salaries20.push(filteredJobs20[i].salary_in_usd)
-            }
-            for (let i=0; i<filteredJobs23.length; i++){
-                salaries23.push(filteredJobs23[i].salary_in_usd)
-            }
-    
-            let avgSal20 = d3.mean(salaries20);
-            let avgSal23 = d3.mean(salaries23);
+            let avg20 = d3.mean(sal20);
+            let avg23 = d3.mean(sal23);
 
-            let difference = avgSal23 - avgSal20
-
+            let difference = avg23 - avg20
+            // dont push null values to array
             if (difference){
             barLabels.push(countryList[i]);
             barData.push(difference)
             }
-
         };
-
         //function to select the colors of the bars in the bar chart
         // green for positive, red for negative
         function barColor(){
@@ -387,18 +279,16 @@ function init(){
             });
     })
 }
-
 // function that is called everything the dropdown menu is changed
 // if 'ALL' is selected run init()
 // otherwise run timeCharts to filter data by location
 function optionChanged(location){
     if (location == 'All'){
+        Chart.getChart('timebar').destroy();
         init()
     }
     else{
         timeCharts(location)
-    }
-}
-
-// call init to initialize the page
+    }}
+// initialize the page
 init();
