@@ -23,7 +23,11 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 
 * Base on the chart shown below, Data Science Tech Lead have the highest salary among other job title with $375k and the lowest salary is Power BI Developer with $5409. This visualization show us the the salary for each job title.
 
-This visualization show us the job title with the remote work percentage.
+![newplot](https://github.com/StanJohn04/project3/assets/120751287/1a1849a7-80a8-4100-a6ed-86f237ba795c)
+
+* This visualization show us the job title with the remote work percentage.
+
+![newplot (1)](https://github.com/StanJohn04/project3/assets/120751287/f495a39f-1627-4023-ba68-c32f812ae516)
 
 # Toolkit
  * Dependencies used for this project:
