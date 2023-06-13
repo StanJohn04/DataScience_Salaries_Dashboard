@@ -12,7 +12,7 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 ![image](https://github.com/StanJohn04/project3/assets/121142680/5449879f-eb8b-49e0-8536-d4679c073ec5)
 ![image](https://github.com/StanJohn04/project3/assets/121142680/a593736d-fe35-4bad-af33-e9f0af6f16d1)
 ![image](https://github.com/StanJohn04/project3/assets/121142680/a5cd5064-3415-4bb6-bdf8-a1cc931b3494)
-
+* Both line graphs are interactive and will update their data depending on the selected country
 * As the charts show, the overall trend is supports an increase in average salary overtime and a decrease in remote work opportunities
 * The bar chart shows a comparison of the change in salaries from 2020-2023
   * Only countries with data entries in 2020 and 2023 are included in the bar chart
