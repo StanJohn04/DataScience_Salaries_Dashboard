@@ -16,6 +16,7 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 * As the charts show, the overall trend is supports an increase in average salary overtime and a decrease in remote work opportunities
 * The bar chart shows a comparison of the change in salaries from 2020-2023
   * Only countries with data entries in 2020 and 2023 are included in the bar chart
+  * Canada has the larget increase in salary ($82,944), while Germany had the largest decrease ($35,022)
 
 # By Country
 
