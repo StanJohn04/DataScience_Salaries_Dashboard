@@ -32,7 +32,23 @@ Design a interactive dashboard that explores a data scientist salaries dataset f
 ![newplot (1)](https://github.com/StanJohn04/project3/assets/120751287/b8462646-3521-4901-ae3e-5467a22069f7)
 
 # Toolkit
+ * Dependencies used for this project:
+   Python Libraries -
+    * sqlite3
+    * flask
+      * Flask, jsonify
+    * flask_cors
+      * CORS
+   JavaScript Libraries -
+    * d3.js
+    * plotly.js
+    * chart.js
+    * leaflet.js
+    * bootstrap v3.3.7
 # Next Steps
+  * A larger, more diverse dataset should be used to further explore data science salaries
+  * More in depth analysis on how experience levels affect salary and remote work opportunities
+  * Perhaps train a machine learning algorithm to predict salary based on job title, experience level, and location
 # Team Members
   * [Stan Johnson](https://github.com/StanJohn04)
   * [Brian Haynes](https://github.com/brianphaynes)
