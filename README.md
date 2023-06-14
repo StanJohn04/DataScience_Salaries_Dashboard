@@ -42,6 +42,14 @@ The map layers and overlays are added to the map using the L.control.layers func
   * Canada has the larget increase in salary ($82,944), while Germany had the largest decrease ($35,022)
 
 # By Country
+* Comparison of average data science salaries and all included job positions per country
+
+* The top chart shows the straight average salary comparison per country and the bottom bubble chart shows the average salaries per country, but adds in how many salaries were compared.
+
+* Israel has the top average job salary, but only has 2 salaries included in the data set
+
+* The US tops the list with the number of jobs that we're in our data set.
+
 
 <img width="1196" alt="Screen Shot 2023-06-12 at 7 12 02 PM" src="https://github.com/StanJohn04/project3/assets/124820451/36cc7b66-732a-4056-aacf-12c97e4b1796">
 
