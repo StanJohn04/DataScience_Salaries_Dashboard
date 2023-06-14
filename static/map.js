@@ -38,7 +38,8 @@ Promise.all([d3.json(country_url), d3.json(location_url)]).then(function([countr
         var mymap = L.map('map', {
             center: [38, 8],
             zoom: 3.0,
-            layers: [street,topo, salaries, remote]
+            layers: [street,topo, salaries, remote],
+            scrollWheelZoom: false
         });
 
         L.control.layers(baseLayers, overlays).addTo(mymap);
