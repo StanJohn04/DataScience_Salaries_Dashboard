@@ -13,7 +13,21 @@ Open the file in VSCode.
 *Enjoy exploring our interactive data science salary dashboard!
 
 # Mapping Data Science Salaries
- * TEXT and IMAGES HERE
+![image](https://github.com/StanJohn04/project3/assets/11607777/729f739e-2588-4563-8d3b-add358d1b1bf)
+This report provides an analysis of company locations and average salaries based on the data obtained from two API endpoints: country_url and location_url. The report utilizes the D3.js library for data retrieval and Leaflet.js library for data visualization.
+Data Retrieval:
+
+The country_url endpoint provides information about company locations, including the country name, latitude, longitude, average salary in USD, and remote work ratio.
+The location_url endpoint provides geographical data, including latitude and longitude, for each country.
+Data Visualization:
+
+The Leaflet.js library is used to create an interactive map to visualize the data.
+Two base map layers are added: "Street" and "Topography".
+Two overlay layers are added: "Average Salaries" and "Remote Ratio".
+The map is initialized with a center coordinate and zoom level.
+The map layers and overlays are added to the map using the L.control.layers function.
+
+
 # Data Science Salaries over time
  * A time series analysis allows us to visualize the data over time.
  * Our data ranges from 2020 up until the beginning of 2023
